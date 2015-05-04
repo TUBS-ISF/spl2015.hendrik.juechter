@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+	<featureModel chosenLayoutAlgorithm="1">
+		<struct>
+			<and abstract="true" mandatory="true" name="HendrikJuechterTask1">
+				<and mandatory="true" name="ModulOrganizer">
+					<description>
+						Container für Module
+					</description>
+					<feature name="Chat">
+						<description>
+							Kleines Chatprogramm 
+							- Lokal
+							- ggf Internet
+							- ggf für Messenger Dienst
+						</description>
+					</feature>
+					<and mandatory="true" name="Notizbuch">
+						<description>
+							Notizbuch zum erstellen, speichern, teilen und drucken von Notizen.
+						</description>
+						<feature name="Lesezeichenplaner">
+							<description>
+								Import und Export von Lesezeichen 
+								Bearbeitung als Notizen
+							</description>
+						</feature>
+					</and>
+					<feature name="Kalender">
+						<description>
+							Kalender mit verschiedenen Ansichten
+							
+						</description>
+					</feature>
+					<feature name="Terminplaner">
+						<description>
+							Termine planen und im Kalender anzeigen
+							
+						</description>
+					</feature>
+					<feature name="Tachenrechner">
+						<description>
+							Rechner für einfache Berechnungen
+						</description>
+					</feature>
+				</and>
+			</and>
+		</struct>
+		<constraints>
+			<rule>
+				<imp>
+					<var>Terminplaner</var>
+					<var>Kalender</var>
+				</imp>
+			</rule>
+		</constraints>
+		<calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
+		<comments/>
+		<featureOrder userDefined="false"/>
+	</featureModel>
