@@ -2,18 +2,27 @@
 	<featureModel chosenLayoutAlgorithm="1">
 		<struct>
 			<and abstract="true" mandatory="true" name="HendrikJuechterTask1">
-				<and mandatory="true" name="ModulOrganizer">
+				<and abstract="true" mandatory="true" name="ModulOrganizer">
 					<description>
-						Container für Module
+						Modulorganizer
 					</description>
-					<feature name="Chat">
+					<or name="Chat">
 						<description>
 							Kleines Chatprogramm 
 							- Lokal
 							- ggf Internet
 							- ggf für Messenger Dienst
 						</description>
-					</feature>
+						<feature mandatory="true" name="Gruppenchat"/>
+						<feature mandatory="true" name="BilderSenden"/>
+						<feature mandatory="true" name="Konatktliste"/>
+						<feature mandatory="true" name="Singlechat"/>
+						<and abstract="true" mandatory="true" name="Profil">
+							<feature name="Profilbild"/>
+							<feature mandatory="true" name="Beschreibung"/>
+						</and>
+						<feature mandatory="true" name="Verschluesselung"/>
+					</or>
 					<and mandatory="true" name="Notizbuch">
 						<description>
 							Notizbuch zum erstellen, speichern, teilen und drucken von Notizen.
@@ -25,34 +34,44 @@
 							</description>
 						</feature>
 					</and>
-					<feature name="Kalender">
+					<and name="Kalender">
 						<description>
 							Kalender mit verschiedenen Ansichten
-							
 						</description>
-					</feature>
-					<feature name="Terminplaner">
-						<description>
-							Termine planen und im Kalender anzeigen
-							
-						</description>
-					</feature>
-					<feature name="Tachenrechner">
+						<feature name="Terminplaner">
+							<description>
+								Termine planen und im Kalender anzeigen
+							</description>
+						</feature>
+						<or abstract="true" mandatory="true" name="Ansichten">
+							<feature mandatory="true" name="Tagesansicht"/>
+							<feature mandatory="true" name="Monatsansicht"/>
+							<feature mandatory="true" name="Wochenansicht"/>
+						</or>
+					</and>
+					<or name="Tachenrechner">
 						<description>
 							Rechner für einfache Berechnungen
 						</description>
-					</feature>
+						<feature mandatory="true" name="Addition"/>
+						<feature mandatory="true" name="Multiplikation"/>
+						<feature mandatory="true" name="Prozent"/>
+						<feature mandatory="true" name="Wurzel"/>
+					</or>
+					<and mandatory="true" name="Basis">
+						<feature name="Dateiexport"/>
+						<feature name="Dateiimport"/>
+						<feature name="Drucken"/>
+					</and>
+					<alt mandatory="true" name="OS">
+						<feature mandatory="true" name="Win"/>
+						<feature mandatory="true" name="Unix"/>
+						<feature mandatory="true" name="Mac"/>
+					</alt>
 				</and>
 			</and>
 		</struct>
-		<constraints>
-			<rule>
-				<imp>
-					<var>Terminplaner</var>
-					<var>Kalender</var>
-				</imp>
-			</rule>
-		</constraints>
+		<constraints/>
 		<calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
 		<comments/>
 		<featureOrder userDefined="false"/>
