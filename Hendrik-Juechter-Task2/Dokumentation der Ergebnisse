@@ -1,0 +1,37 @@
+Dokumentation zur Auswahl von Kombinationen
+
+Erste Features:
+
+Rechner
+	- Addition
+	- Subtraktion
+	- Multiplikation
+	- Division
+
+Konfigurationseinstellungen in Conf-Datei
+
+Windows true
+Linux false
+Rechner true
+Addition true
+Subtraktion true
+Multiplikation true
+Division true
+
+Wenn alle Features aktiviert sind, können die alle auch genutzt werden.
+
+Rechner false
+Addition true
+Subtraktion true
+Multiplikation true
+Division true
+
+Wenn Feature Rechner nicht aktiviert ist, können auch die Unter-Features nicht genutzt werden
+
+Rechner true
+Addition true
+Subtraktion true
+Multiplikation false
+Division false
+
+Wenn einzelne unabhängige Features deaktiviert sind, stehen nur die aktiven zur Verfügung
