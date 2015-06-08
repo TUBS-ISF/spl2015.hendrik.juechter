@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+	<featureModel chosenLayoutAlgorithm="1">
+		<struct>
+			<and abstract="true" mandatory="true" name="HendrikJuechterTask1">
+				<and abstract="true" mandatory="true" name="ModulOrganizer">
+					<description>
+						Modulorganizer
+					</description>
+					<or abstract="true" name="Chat">
+						<description>
+							Kleines Chatprogramm 
+							- Lokal
+							- ggf Internet
+							- ggf für Messenger Dienst
+						</description>
+						<feature abstract="true" mandatory="true" name="Gruppenchat">
+							<description>
+								Chat mit mehreren Personen
+							</description>
+						</feature>
+						<feature abstract="true" mandatory="true" name="BilderSenden">
+							<description>
+								Senden von Bildern
+							</description>
+						</feature>
+						<feature abstract="true" mandatory="true" name="Konatktliste">
+							<description>
+								Liste mit Kontakten
+							</description>
+						</feature>
+						<feature abstract="true" mandatory="true" name="Singlechat">
+							<description>
+								Chat mit einem Kontakt
+							</description>
+						</feature>
+						<and abstract="true" mandatory="true" name="Profil">
+							<description>
+								Profil des Nutzers
+							</description>
+							<feature abstract="true" name="Profilbild">
+								<description>
+									Bild des Benutzers
+								</description>
+							</feature>
+							<feature abstract="true" mandatory="true" name="Beschreibung">
+								<description>
+									Kontaktdaten
+								</description>
+							</feature>
+						</and>
+						<feature abstract="true" mandatory="true" name="Verschluesselung">
+							<description>
+								Verschlüsselung der Daten beim Senden
+							</description>
+						</feature>
+					</or>
+					<and abstract="true" mandatory="true" name="Notizbuch">
+						<description>
+							Notizbuch zum erstellen, speichern, teilen und drucken von Notizen.
+						</description>
+						<feature abstract="true" name="Lesezeichenplaner">
+							<description>
+								Import und Export von Lesezeichen 
+								Bearbeitung als Notizen
+							</description>
+						</feature>
+					</and>
+					<and abstract="true" name="Kalender">
+						<description>
+							Kalender mit verschiedenen Ansichten
+						</description>
+						<feature abstract="true" name="Terminplaner">
+							<description>
+								Termine planen und im Kalender anzeigen
+							</description>
+						</feature>
+						<or abstract="true" mandatory="true" name="Ansichten">
+							<description>
+								Unterschiedliche Darstellung des Kalenders
+							</description>
+							<feature abstract="true" mandatory="true" name="Tagesansicht">
+								<description>
+									Ansicht eines Tages
+								</description>
+							</feature>
+							<feature abstract="true" mandatory="true" name="Wochenansicht">
+								<description>
+									Ansicht einer Woche
+								</description>
+							</feature>
+							<feature abstract="true" mandatory="true" name="Monatsansicht">
+								<description>
+									Ansicht eines Monats
+								</description>
+							</feature>
+						</or>
+					</and>
+					<or name="Taschenrechner">
+						<description>
+							Rechner für einfache Berechnungen
+						</description>
+						<feature mandatory="true" name="Addition">
+							<description>
+								Plus und Minus Berechnungen
+							</description>
+						</feature>
+						<feature mandatory="true" name="Subtraktion"/>
+						<feature mandatory="true" name="Multiplikation">
+							<description>
+								Multiplizieren und Dividieren
+							</description>
+						</feature>
+						<feature mandatory="true" name="Division"/>
+						<feature abstract="true" mandatory="true" name="Prozent">
+							<description>
+								Prozentrechnung
+							</description>
+						</feature>
+						<feature abstract="true" mandatory="true" name="Wurzel">
+							<description>
+								Wurzelberechnung
+							</description>
+						</feature>
+					</or>
+					<and abstract="true" mandatory="true" name="Basis">
+						<description>
+							Basisprogramm, das die Module aufnimmt
+						</description>
+						<feature abstract="true" name="Dateiexport">
+							<description>
+								Export von Dateien aus verschiedenen Modulen
+							</description>
+						</feature>
+						<feature abstract="true" name="Dateiimport">
+							<description>
+								Import von Dateien für verschiedene Module
+							</description>
+						</feature>
+						<feature abstract="true" name="Drucken">
+							<description>
+								Drucken von Beiträgen aus Modulen
+							</description>
+						</feature>
+					</and>
+					<alt abstract="true" mandatory="true" name="OS">
+						<description>
+							Auswahl Betriebssystem
+						</description>
+						<feature mandatory="true" name="Win"/>
+						<feature mandatory="true" name="Linux"/>
+						<feature mandatory="true" name="Mac"/>
+					</alt>
+				</and>
+			</and>
+		</struct>
+		<constraints>
+			<rule>
+				<imp>
+					<var>Chat</var>
+					<var>Profil</var>
+				</imp>
+			</rule>
+		</constraints>
+		<calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
+		<comments/>
+		<featureOrder userDefined="false"/>
+	</featureModel>
