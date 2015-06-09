@@ -122,16 +122,16 @@
 							</description>
 						</feature>
 					</or>
-					<and abstract="true" mandatory="true" name="Basis">
+					<and name="Basis">
 						<description>
 							Basisprogramm, das die Module aufnimmt
 						</description>
-						<feature abstract="true" name="Dateiexport">
+						<feature name="Dateiexport">
 							<description>
 								Export von Dateien aus verschiedenen Modulen
 							</description>
 						</feature>
-						<feature abstract="true" name="Dateiimport">
+						<feature name="Dateiimport">
 							<description>
 								Import von Dateien für verschiedene Module
 							</description>
