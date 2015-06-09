@@ -2,7 +2,7 @@ package calculator;
 
 public class calc {
 
-	
+	private String output;
 	
 	public calc() {
 		
@@ -20,6 +20,7 @@ public class calc {
 		} else if(input.contains("/")){
 			ergebnis = div(parse("/", input));
 		}
+		setOutput(input + " = " + ergebnis);
 		return "" + ergebnis;
 	}
 	
@@ -47,5 +48,21 @@ public class calc {
 	
 	private double add(Double[] values) {
 		return values[0] + values[1];
+	}
+
+	/**
+	 * getter
+	 * @return the output
+	 */
+	public String getOutput() {
+		return output;
+	}
+
+	/**
+	 * setter
+	 * @param output the output to set
+	 */
+	public void setOutput(String output) {
+		this.output = output;
 	}
 }

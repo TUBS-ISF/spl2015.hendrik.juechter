@@ -1,13 +1,20 @@
 package global;
 
 public class Conf {
-	public static boolean Logging = false;
-	public static boolean Windows = true;
-	public static boolean Linux = true;
+	private static String actualPanel = "main";
+
+	/**
+	 * @return the actualPanel
+	 */
+	public static String getActualPanel() {
+		return actualPanel;
+	}
+
+	/**
+	 * @param actualPanel the actualPanel to set
+	 */
+	public static void setActualPanel(String theActualPanel) {
+		actualPanel = theActualPanel;
+	}
 	
-	public static boolean Taschenrechner = true;
-	public static boolean CalcAdd = true;
-	public static boolean CalcSub = true;
-	public static boolean CalcMult = true;
-	public static boolean CalcDiv = true;
 }
