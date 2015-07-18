@@ -1,0 +1,36 @@
+# Lists all features from the model with manual (first digit) and automatic (second digit) selection
+# 0 = deselected, 1 = selected, 2 = undefined
+21HendrikJuechterTask1
+11ModulOrganizer
+11Chat
+12Gruppenchat
+12BilderSenden
+12Konatktliste
+12Singlechat
+21Profil
+22Profilbild
+21Beschreibung
+12Verschluesselung
+11Notizbuch
+12Lesezeichenplaner
+22Kalender
+22Terminplaner
+22Ansichten
+22Tagesansicht
+22Wochenansicht
+22Monatsansicht
+11Taschenrechner
+12Addition
+12Subtraktion
+12Multiplikation
+12Division
+12Prozent
+22Wurzel
+11Basis
+12Dateiexport
+12Dateiimport
+22Drucken
+11OS
+20Win
+12Linux
+20Mac
