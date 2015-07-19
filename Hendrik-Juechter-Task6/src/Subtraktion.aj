@@ -1,6 +1,6 @@
 
 public aspect Subtraktion {
-	before() : call(void CalcPanel.initButtons()) {
+	after() : call(void CalcPanel.initButtons()) {
 		CalcPanel.addSubButton();
 	}
 }
