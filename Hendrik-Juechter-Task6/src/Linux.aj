@@ -1,7 +1,7 @@
 
 public aspect Linux {
-		after() : call(void Main.start()) {
-			Main.callLinuxMethod();
+		after() : call(void MainTask6.start()) {
+			MainTask6.callLinuxMethod();
 		}
 	
 }

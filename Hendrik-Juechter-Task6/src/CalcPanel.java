@@ -37,6 +37,13 @@ public class CalcPanel extends AllIntFrame implements Plugin {
 	protected boolean hasPoint = false;
 
 	private InputProvider app;
+	
+	private static JButton prozentB = new JButton("%");
+	private static JButton plusB = new JButton("+");
+	private static JButton minusB = new JButton("-");
+	private static JButton multipleB = new JButton("*");
+	private static JButton differenceB = new JButton("/");
+
 
 	public CalcPanel() {
 		init();
@@ -50,7 +57,9 @@ public class CalcPanel extends AllIntFrame implements Plugin {
 		text.setText(string);
 	}
 
-	class WriteAction implements ActionListener {
+
+	class  WriteAction  implements ActionListener {
+		
 
 		public void actionPerformed(ActionEvent e) {
 			String ausgabe = e.getActionCommand();
@@ -58,9 +67,8 @@ public class CalcPanel extends AllIntFrame implements Plugin {
 				if (getText().isEmpty()) {
 					setText("0" + ausgabe);
 				}
-				if (!getText().contains("%") && !getText().contains("+")
-						&& !getText().contains("-") && !getText().contains("*")
-						&& !getText().contains("/")) {
+				if (!getText().contains("%") && !getText().contains("+") && !getText().contains("-")
+						&& !getText().contains("*") && !getText().contains("/")) {
 					setText(getText() + ausgabe);
 				}
 				hasPoint = false;
@@ -68,9 +76,8 @@ public class CalcPanel extends AllIntFrame implements Plugin {
 				if (getText().isEmpty()) {
 					setText("0" + ausgabe);
 				}
-				if (!getText().contains("%") && !getText().contains("+")
-						&& !getText().contains("-") && !getText().contains("*")
-						&& !getText().contains("/")) {
+				if (!getText().contains("%") && !getText().contains("+") && !getText().contains("-")
+						&& !getText().contains("*") && !getText().contains("/")) {
 					setText(getText() + ausgabe);
 				}
 				hasPoint = false;
@@ -78,9 +85,8 @@ public class CalcPanel extends AllIntFrame implements Plugin {
 				if (getText().isEmpty()) {
 					setText("0" + ausgabe);
 				}
-				if (!getText().contains("%") && !getText().contains("+")
-						&& !getText().contains("-") && !getText().contains("*")
-						&& !getText().contains("/")) {
+				if (!getText().contains("%") && !getText().contains("+") && !getText().contains("-")
+						&& !getText().contains("*") && !getText().contains("/")) {
 					setText(getText() + ausgabe);
 				}
 				hasPoint = false;
@@ -88,19 +94,17 @@ public class CalcPanel extends AllIntFrame implements Plugin {
 				if (getText().isEmpty() || getText().equals("0")) {
 					setText("ERROR Division with 0");
 				}
-				if (!getText().contains("%") && !getText().contains("+")
-						&& !getText().contains("-") && !getText().contains("*")
-						&& !getText().contains("/")) {
+				if (!getText().contains("%") && !getText().contains("+") && !getText().contains("-")
+						&& !getText().contains("*") && !getText().contains("/")) {
 					setText(getText() + ausgabe);
 				}
 				hasPoint = false;
-			} else if (ausgabe.equals("%")) {
-				if (getText().isEmpty()) {
+			} else if(ausgabe.equals("%")) {
+				if(getText().isEmpty()) {
 					setText("0" + ausgabe);
 				}
-				if (!getText().contains("%") && !getText().contains("+")
-						&& !getText().contains("-") && !getText().contains("*")
-						&& !getText().contains("/")) {
+				if(!getText().contains("%") && !getText().contains("+") && !getText().contains("-")
+						&& !getText().contains("*") && !getText().contains("/")) {
 					setText(getText() + ausgabe);
 				}
 			} else if (ausgabe.equals(".")) {
@@ -120,6 +124,7 @@ public class CalcPanel extends AllIntFrame implements Plugin {
 				setText(getText() + ausgabe);
 			}
 		}
+
 
 	}
 
@@ -205,7 +210,6 @@ public class CalcPanel extends AllIntFrame implements Plugin {
 		nineB.addActionListener(new WriteAction());
 		numButtons.add(nineB);
 
-
 		JButton fourB = new JButton("4");
 		fourB.addActionListener(new WriteAction());
 		numButtons.add(fourB);
@@ -245,48 +249,42 @@ public class CalcPanel extends AllIntFrame implements Plugin {
 	}
 
 	private void initButtons() {
-		// TODO Auto-generated method stub
-		
-	}
 
-	public static void addAddButton() {
-		JButton plusB = new JButton("+");
-
+		// #if Prozent
+		prozentB.setVisible(false);
+		prozentB.addActionListener(new WriteAction());
+		moreCalcButtons.add(prozentB);
+		// #else
+		// @ buttons.add(new JLabel());
+		// #endif
+		plusB.setVisible(false);
 		// #if Addition
-		plusB.addActionListener(new CalcPanel().new WriteAction());
+		plusB.addActionListener(new WriteAction());
 		// #else
 		// @ plusB.setLabel("");
 		// @ plusB.setEnabled(false);
 		// #endif
 		calcButtons.add(plusB);
-	}
 
-	public static void addSubButton() {
-		JButton minusB = new JButton("-");
+		minusB.setVisible(false);
 		calcButtons.add(minusB);
 		// #if Subtraktion
-		minusB.addActionListener(new CalcPanel().new WriteAction());
+		minusB.addActionListener(new WriteAction());
 		// #else
 		// @ minusB.setLabel("");
 		// @ minusB.setEnabled(false);
 		// #endif
-	}
-
-	public static void addMultButton() {
-		JButton multipleB = new JButton("*");
+		multipleB.setVisible(false);
 		// #if Multiplikation
-		multipleB.addActionListener(new CalcPanel().new WriteAction());
+		multipleB.addActionListener(new WriteAction());
 		// #else
 		// @ multipleB.setLabel("");
 		// @ multipleB.setEnabled(false);
 		// #endif
 		calcButtons.add(multipleB);
-	}
-
-	public static void addDivButton() {
-		JButton differenceB = new JButton("/");
+		differenceB.setVisible(false);
 		// #if Division
-		differenceB.addActionListener(new CalcPanel().new WriteAction());
+		differenceB.addActionListener(new WriteAction());
 		// #else
 		// @ differenceB.setLabel("");
 		// @ differenceB.setEnabled(false);
@@ -294,14 +292,24 @@ public class CalcPanel extends AllIntFrame implements Plugin {
 		calcButtons.add(differenceB);
 	}
 
+	public static void addAddButton() {
+		plusB.setVisible(true);
+	}
+
+	public static void addSubButton() {
+		minusB.setVisible(true);
+	}
+
+	public static void addMultButton() {
+		multipleB.setVisible(true);
+	}
+
+	public static void addDivButton() {
+		differenceB.setVisible(true);
+	}
+
 	public static void addProzentButton() {
-		// #if Prozent
-		JButton prozentB = new JButton("%");
-		prozentB.addActionListener(new CalcPanel().new WriteAction());
-		moreCalcButtons.add(prozentB);
-		// #else
-		// @ buttons.add(new JLabel());
-		// #endif
+		prozentB.setVisible(true);
 	}
 
 }
